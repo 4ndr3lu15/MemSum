@@ -1,4 +1,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10%2E18653%2Fv1%2F2022%2Eacl--long%2E450-blue)](http://dx.doi.org/10.18653/v1/2022.acl-long.450)
+<a href="https://colab.research.google.com/github/nianlonggu/MemSum/blob/main/Training_Pipeline.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/nianlong/memsum-arxiv-summarizer)
+
 # MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes
 
 Code for ACL 2022 paper on the topic of long document extractive summarization: [MemSum: Extractive Summarization of Long Documents Using Multi-Step Episodic Markov Decision Processes](https://aclanthology.org/2022.acl-long.450/).
@@ -245,6 +248,15 @@ You can also directly run the training pipeline on google colab: <a href="https:
 ```
 
 ## Updates
+### Update 09-04-2024: Set up a Docker to demonstrate using MemSum to summarize arXiv papers given a URL or PDF
+https://huggingface.co/spaces/nianlong/memsum-arxiv-summarizer [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/nianlong/memsum-arxiv-summarizer)
+The demo on huggingface space is slow because MemSum is running on a small CPU, if you want to try it locally on your machine with docker installed, run:
+```bash
+docker run -it -p 7860:7860 --platform=linux/amd64 \
+	registry.hf.space/nianlong-memsum-arxiv-summarizer:latest 
+```
+And the open [http://localhost:7860](http://localhost:7860/) in your browser after docker is running:
+![docker example](images/docker_demo.png)
 
 ### Update 09-02-2023: Released the dataset for human evaluation (comparing MemSum with NeuSum). 
 Data is available in folder human_eval_results/. It recorded the samples we used for human evaluation and records of participants' labelling.
